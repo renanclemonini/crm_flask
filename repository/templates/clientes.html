@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    {% include 'bs4.html' %}
+</head>
+<body>
+    <header>{% include 'navbar.html' %}</header>
+    <main>
+        <h1>Cadastrar Cliente</h1>
+        {{form_clientes}}
+        <form action="/add" class="container" method="post">
+            {{form_clientes.csfr_token}}
+            <div class="form-group">
+                <div class="form-control">{{form_clientes.id_cliente.label}} {{form_clientes.id_cliente}}</div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">{{form_clientes.nome_cliente.label}} {{form_clientes.nome_cliente}}</div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">{{form_clientes.telefone_cliente.label}} {{form_clientes.telefone_cliente}}</div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">{{form_clientes.email_cliente.label}} {{form_clientes.email_cliente}}</div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">{{form_clientes.senha_cliente.label}} {{form_clientes.senha_cliente}}</div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">{{form_clientes.confirma_senha.label}} {{form_clientes.confirma_senha}}</div>
+            </div>
+            <p>{{form_clientes.botao_cadastracliente}}</p>
+        </form>
+    </main>
+</body>
+</html>

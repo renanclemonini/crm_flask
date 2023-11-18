@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Cliente</title>
+    {% include 'bs4.html' %}
+</head>
+<body>
+    <header>{% include 'navbar.html' %}</header>
+    <main>
+        <h1 class="text-center">Cadastrar Movimento</h1>
+        <div class="my-3">
+            <form action="/add" class="container" method="post">
+                <div class="form-group">
+                    <label for="iProdutoid">Produto: </label>
+                    <select name="id_produto" id="iProdutoid">
+                        {% for produto in produtos %}
+                        <option value="{{ produto.id_produto }}"> {{ produto.nome_produto }} R$ {{ produto.valor_produto }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="quantidade_produto" id="iQtdProduto" class="form-control text-center border border-dark" placeholder="Quantidade Produto">
+                </div>
+                <hr class="border border-dark">
+                <div class="form-group">
+                    <label for="iData">Data Movimento: </label>
+                    <input type="date" name="data_movimento" id="iData" class="form-control border border-dark text-center">
+                </div>
+                <hr class="border border-dark">
+                <div class="form-group">
+                    <input type="number" name="numero_nf" id="iNf" class="form-control text-center border border-dark" placeholder="Número Nota Fiscal">
+                </div>
+                <hr class="border border-dark">
+                <div class="form-group">
+                    <label for="iTipo">Tipo Movimento: </label>
+                    <select name="tipo_movimento" id="iTipo">
+                        <option value="S">Saída</option>
+                        <option value="E">Entrada</option>
+                    </select>
+                </div>
+                <hr class="border border-dark">
+                <div class="form-group">
+                    <label for="iStatus">Status Movimento: </label>
+                    <select name="status_movimento" id="iStatus">
+                        <option value="Processado">Processado</option>
+                        <option value="Pendente">Pendente</option>
+                        <option value="Entregue">Entregue</option>
+                    </select>
+                </div>
+                <hr class="border border-dark">
+                <div class="form-group">
+                    <input type="text" name="descricao" id="iDescricao" class="form-control text-center border border-dark" placeholder="Escrever Descrição">
+                </div>
+                <hr class="border border-dark">
+                <div class="my-3">
+                    <input type="submit" class="btn btn-block btn-primary mt-3" value="Enviar">
+                </div>
+            </form>
+            <div class="container my-3">
+                <button class="btn btn-block btn-success">
+                    <a href="{{ url_for('index') }}" style="color: white;">Voltar</a>
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h5 class="text-center">Feito por Renan Clemonini</h5>
+    </footer>
+</body>
+</html>

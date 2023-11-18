@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'bs4.html' %}
+    <title>Estoque</title>
+</head>
+<body>
+    <header>{% include 'navbar.html' %}</header>
+    <main>
+        <div class="container">
+            <h2 class="my-3">Estoque</h2>
+            <a href="/add">Adicionar Movimento</a>
+            <table class="table table-striped my-3">
+                <thead>
+                    <tr>
+                        <th>ID Movimento</th>
+                        <th>ID Produto</th>
+                        <th>Quantidade</th>
+                        <th>Valor Unitário</th>
+                        <th>Valor Total</th>
+                        <th>Data</th>
+                        <th>NF</th>
+                        <th>Tipo Movimento</th>
+                        <th>Status Movimento</th>
+                        <th>Descrição</th>
+                        <th>
+                            Editar / Excluir
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dado in estoque %}
+                    <tr>
+                        <td>{{dado.id_movimento}}</td>
+                        <td>{{dado.id_produto}}</td>
+                        <td>{{dado.quantidade_produto}}</td>
+                        <td>{{dado.valor_unitario}}</td>
+                        <td>{{dado.valor_total}}</td>
+                        <td>{{dado.data_movimento}}</td>
+                        <td>{{dado.numero_nf}}</td>
+                        <td>{{dado.tipo_movimento}}</td>
+                        <td>{{dado.status_movimento}}</td>
+                        <td>{{dado.descricao}}</td>
+                        <td>
+                            <a href="/edit/{{dado.id_produto}}/{{dado.data_movimento}}/{{dado.numero_nf}}/{{dado.tipo_movimento}}/">Editar</a> |
+                            <a href="/delete/{{dado.id_produto}}/{{dado.data_movimento}}/{{dado.numero_nf}}/{{dado.tipo_movimento}}/">Excluir</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

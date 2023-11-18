@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar NF</title>
+    {% include 'bs4.html' %}
+</head>
+<body>
+    <header>{% include 'navbar.html' %}</header>
+    <main>
+        <h1 class="text-center">Editar movimento da NF: {{ Estoque.numero_nf }}</h1>
+        <div class="my-3">
+            <form action="/add" class="container" method="post">
+                <div class="form-group">
+                    <label for="iProdutoid">ID Produto: </label>
+                    <input type="number" name="id_produto" id="iProdutoid" class="form-control" value="{{ Estoque.id_produto }}">
+                </div>
+                <div class="form-group">
+                    <label for="iQtdProduto">Qtd Produto: </label>
+                    <input type="number" name="quantidade_produto" id="iQtdProduto" class="form-control" value="{{ Estoque.quantidade_produto }}">
+                </div>
+                <div class="form-group">
+                    <label for="iValor">Valor: </label>
+                    <input type="number" name="valor" id="iValor" class="form-control" value="{{ Estoque.valor }}">
+                </div>
+                <div class="form-group">
+                    <label for="iData">Data Movimento: </label>
+                    <input type="date" name="data_p" id="iData" class="form-control" value="{{ Estoque.data_p }}">
+                </div>
+                <div class="form-group">
+                    <label for="iNf">NF: </label>
+                    <input type="number" name="numero_nf" id="iNf" class="form-control" value="{{ Estoque.numero_nf }}">
+                </div>
+                <div class="form-group">
+                    <label for="iTipo">Tipo Movimento [S/N]: </label>
+                    <input type="text" name="tipo_movimento" id="iTipo" class="form-control" value="{{ Estoque.tipo_movimento }}">
+                </div>
+                <input type="submit" class="btn btn-block btn-primary" value="Enviar">
+                <button class="btn btn-block btn-success">
+                    <a href="{{ url_for('index') }}" style="color: white;">Voltar</a>
+                </button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <h5 class="text-center">Feito por Renan Clemonini</h5>
+    </footer>
+</body>
+</html>
